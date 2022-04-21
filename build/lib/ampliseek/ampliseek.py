@@ -19,10 +19,10 @@ def percentFloat(id_arg):
 # Arguments - todo consider optional argument for specifying logs/intermediate files
 def get_args():
     parser = argparse.ArgumentParser(
-        description="Ampliseek dev",
+        description="AmpliSeq amplicon mapper tool",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     required = parser.add_argument_group('required arguments')
-    optional = parser.add_argument_group('optional arguements')
+    optional = parser.add_argument_group('optional arguments')
 
     # input forward fastq.gz file
     required.add_argument('-f', '--forward_reads', action='store',
@@ -93,10 +93,10 @@ def interleave_reads(args, filename, log_dir, output_dir):
     e.close()
     
 
-# Trims interleaved reads using bbduk2.sh and standard Illumina adapters
+# Trims interleaved reads using bbduk.sh and standard Illumina adapters
 def trim_reads(filename, log_dir, output_dir):
     bbduk_command= [
-        "bbduk2.sh",
+        "bbduk.sh",
         str("in="+ str(output_dir + filename + '_interleaved.fq.gz')),
         str("out="+ output_dir + filename + '_trimmmed.fq.gz'),
         "mink=6",
@@ -143,7 +143,7 @@ def map_reads(args, filename, log_dir, output_dir):
         "bbmapskimmer.sh",
         str("in="+ str(output_dir + filename + '_merged.fq.gz')),
         "out=stdout.sam",
-        "ref=ampliseq_targets_only.fasta", # AmpliSeq AMR panel targets from manifest 
+        "ref=ampliseq_targets.fasta", # AmpliSeq AMR panel targets from manifest 
         "ambig=all",
         str("minid=" + str(args.id_filter-0.1)), # user-defined threshold - 0.1 (fast approximate filter)
         str("idfilter=" + str(args.id_filter)), # user-defined threshold [0-1] (slow absolute filter)
@@ -156,7 +156,7 @@ def map_reads(args, filename, log_dir, output_dir):
         "bbmapskimmer.sh",
         str("in="+ str(output_dir + filename + '_merged.fq.gz')),
         "out=stdout.sam",
-        "ref=ampliseq_targets_only.fasta", 
+        "ref=ampliseq_targets.fasta", 
         "ambig=all",
         "minscaf=73",
         "saa=f",

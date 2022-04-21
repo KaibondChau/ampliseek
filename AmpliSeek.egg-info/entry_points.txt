@@ -1,0 +1,3 @@
+[console_scripts]
+ampliseek = ampliseek.ampliseek:main
+

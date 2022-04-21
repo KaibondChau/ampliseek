@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+AmpliSeek.egg-info/PKG-INFO
+AmpliSeek.egg-info/SOURCES.txt
+AmpliSeek.egg-info/dependency_links.txt
+AmpliSeek.egg-info/entry_points.txt
+AmpliSeek.egg-info/requires.txt
+AmpliSeek.egg-info/top_level.txt
+ampliseek/__init__.py
+ampliseek/ampliseek.py
