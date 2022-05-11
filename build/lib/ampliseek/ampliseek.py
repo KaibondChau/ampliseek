@@ -44,7 +44,7 @@ def get_args():
     return args
 
 
-# validate forward and reverse fq.gz files
+# validate forward and reverse fq.gz files #todo currently very slow due to gzip.open
 def validate_input(args):
     with gzip.open(args.forward_reads, "rt") as handle:
         fasta_content = list(SeqIO.parse(handle, "fastq"))
@@ -104,7 +104,7 @@ def trim_reads(filename, log_dir, output_dir):
         "k=19",
         "hdist=1",
         "edist=0",
-        "ref=adapters.fa", # standard illumina adapters from BBTools 
+        "ref=adapters.fa", # standard illumina adapters from BBTools #todo point to static manifest-defined files
         "minlength=75",
         "qin=33"]
     p_bbduk = subprocess.run(
@@ -143,7 +143,7 @@ def map_reads(args, filename, log_dir, output_dir):
         "bbmapskimmer.sh",
         str("in="+ str(output_dir + filename + '_merged.fq.gz')),
         "out=stdout.sam",
-        "ref=ampliseq_targets.fasta", # AmpliSeq AMR panel targets from manifest 
+        "ref=ampliseq_targets.fasta", # AmpliSeq AMR panel targets from manifest #todo point to static manifest-defined files
         "ambig=all",
         str("minid=" + str(args.id_filter-0.1)), # user-defined threshold - 0.1 (fast approximate filter)
         str("idfilter=" + str(args.id_filter)), # user-defined threshold [0-1] (slow absolute filter)
@@ -195,12 +195,13 @@ def pileup_reads(filename, log_dir, output_dir, cov_dir):
     o.close()  
 
 
-def main_function():
+def main():
     start = time.time()
     args = get_args()
     filename = get_filename(args)
     log_dir, output_dir, cov_dir = get_dirs(filename)
-    #validate_input(args) # todo works locally but not on analysis1
+    #validate_input(args) #todo currently ommited as gzip.open is extremely slow 
+    #print("Input files validated")
     prep_dirs(filename)
     print("Interleaving reads...")
     interleave_reads(args, filename, log_dir, output_dir)
@@ -220,6 +221,6 @@ def main_function():
     print(str("All done in " + str((round(end - start, 2))) + " seconds"))
     
 
-main_function()
+main()
 
 

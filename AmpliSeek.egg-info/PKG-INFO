@@ -1,17 +1,14 @@
-Metadata-Version: 2.1
+Metadata-Version: 1.2
 Name: AmpliSeek
-Version: 0.1.2
+Version: 0.1.5
 Summary:  AmpliSeq amplicon mapper tool
 Home-page:  https://github.com/KaibondChau/ampliseek
 Author:  Kevin Chau
 Author-email:  kevin.chau@ndm.ox.ac.uk
 License: LICENSE
+Description: UNKNOWN
 Platform: UNKNOWN
 Classifier: Intended Audience :: Science/Research
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Natural Language :: English
 Requires-Python: >=3.6
-License-File: LICENSE
-
-UNKNOWN
-
