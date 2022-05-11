@@ -221,6 +221,7 @@ def main():
     print(str("All done in " + str((round(end - start, 2))) + " seconds"))
     
 
-main()
+if __name__ == '__main__':
+    main()
 
 
