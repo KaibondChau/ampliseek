@@ -22,3 +22,8 @@ pip install git+https://github.com/KaibondChau/ampliseek
 | --- | --- |
 | `-h` | Displays help information |
 | `-id` or `--id_filter` | Value to pass to BBMapSkimmer idfilter [0-1] |
+
+# License
+ AmpliSeek is available under the MIT License.
+ 
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
