@@ -6,6 +6,7 @@ AmpliSeek is a BBTools wrapper pipeline for mapping sequencing reads generated b
 Chau KK, Matlock W, Constantinides B, Lipworth S, Newbold L, Tipper H, Goodall T, Brett H, Hughes J, Crook DW, Eyre DW, Read DS, Walker AS, Stoesser N. Evaluation of metagenomic, 16S rRNA gene and ultra-plexed PCR-based sequencing approaches for profiling antimicrobial resistance gene and bacterial taxonomic composition of polymicrobial samples. BioRxiv 2022.
 
 [![DOI:10.1101/2022.05.12.491637](http://img.shields.io/badge/DOI-10.1101/2022.05.12.491637-B31B1B.svg)](https://doi.org/10.1101/2022.05.12.491637)
+![version:v1.0.0](http://img.shields.io/badge/version-v1.0.0-6CC644.svg)
 
 ## Installation
 Conda + pip
